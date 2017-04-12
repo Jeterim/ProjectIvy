@@ -44,6 +44,7 @@
 
     <property name="build.dir" value="build" />
     <property name="src.dir" value="src" />
+    <property name="report.dir" value="report" />
     
     
     <target name="download-ivy" unless="skip.download">
@@ -116,6 +117,11 @@ Let's go!
                 <path location="${build.dir}" />
             </classpath>
         </java>
+    </target>
+
+    <target name="report" depends="go">
+        <mkdir dir="${report.dir}" />
+        <ivy:report todir="${report.dir}" />
     </target>
 
 	<!-- ================================= 
